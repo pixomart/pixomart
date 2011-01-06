@@ -1,0 +1,41 @@
+<% @page_title = "Login to Pixomart" %>
+<body class="nobackground">
+
+        <div id="login">
+        
+        	<h1 class="logo">
+            	<%=link_to("Pixomart Admin", :action =>  "admin")%>
+            </h1>
+            <h2 class="loginheading">Pixomart Admin Login</h2>
+            <div class="icon_login ie6fix"></div>
+             
+
+             <%= form_tag('try_login', :id =>'login-form') do %>   
+            <p>
+            	<%=label_tag(:email)%>
+            	<%=text_field_tag :email,nil, :class => 'input-medium'%>
+        	</p>
+        	<p>
+        	
+        	    <%= label_tag(:password)%>
+            	<%=password_field_tag :password,nil, :class => 'input-medium'%>
+            	
+        	</p>
+        
+        	<p class="remember">
+            	<label for="checkbox1" class="inline">Remember me?</label>
+            	<input type="checkbox" value="1" name="checkbox1" id="checkbox1" />
+                
+        	</p>
+        	<div class="forgot_pw"><a href="index.html">Forgot password?</a></div>
+        	<p class="clearboth">
+            <%=submit_tag "Login", :disable_with => "Wait...", :class => "button"%>
+        	</p>
+            <%end%>
+        </div>
+        <% if !flash[:notice].blank? %>
+        <div class="login_message message error">
+          <p><%= flash[:notice]%></p>
+        </div>
+        <%end%>
+    </body>

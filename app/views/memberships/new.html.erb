@@ -1,0 +1,156 @@
+<body>
+    
+    <div id="top">
+    
+        <div id="head">
+        	<h1 class="logo">
+            	<a href="">Pixomart Admin</a>
+            </h1>
+            
+            <div class="head_memberinfo">
+            	<div class="head_memberinfo_logo">
+                	<span>3</span>
+                	<img src="../images/unreadmail.png" alt=""/>
+                </div>
+                
+                <span class='memberinfo_span'>
+               		 Welcome <a href=""><%= session[:name]%></a>
+                </span>
+                
+                <span class='memberinfo_span'>
+                	<a href="">Settings</a>
+                </span>
+                
+                <span>
+					<%= link_to("Logout", :action => 'admins/logout') %>
+                </span>
+                
+                <span class='memberinfo_span2'>
+                	<a href="">You have 1 new notification</a>
+                </span>
+            </div><!--end head_memberinfo-->
+        
+        </div><!--end head-->
+       	
+        	<div id="bg_wrapper">
+            
+                <div id="main">
+                
+                    <div id="content">
+                    
+                        <div class="jquery_tab">
+                        
+                            <div class="content_block">
+	                            <h2 class="jquery_tab_title">Create New Membership</h2>
+	
+
+									<%= form_for :membership, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+									
+	                                <p>
+	                                    <label for="mail">Membership Title</label>
+										<%= f.text_field(:title, :class => "input-medium")%>
+	                                </p>
+	
+									
+									<p>
+										<label for="mail">Price</label>
+										<%= f.text_field(:price, :class => "input-small")%> 
+									</p>
+									<p>
+	                                    <label for="selectbox">Billing Cycle</label>
+										<% billing_cycle = {'Monthly' => 1, 'Quarterly' => 2, 'Half Yearly' => 3, 'Annual' => 4} %>
+										<%= select_tag "billing_cycle", options_for_select(billing_cycle) %>										
+										
+									
+	                                <p>
+		
+									<p>
+	                                    <label for="selectbox">Status</label>
+										<% billing_cycle = {'Active' => 1, 'Suspended' => 2}%>
+										<%= select_tag "billing_cycle", options_for_select(billing_cycle) %>										
+
+
+	                                <p>
+	                                    <label for="url">Description</label>
+	                                    <%= f.text_area(:description, :class => "input-flex")%> 
+	                                </p>
+	
+									<p>
+	                                    <%= f.submit("Create" ,:class => "button")%> 
+	                                </p>
+	
+	
+									<%end%>
+
+	                        </div><!--end content_block-->                            
+                        </div><!--end jquery tab--> 
+                        
+                    </div><!--end content-->
+                    
+                </div><!--end main-->
+                
+          <div id="sidebar">
+                        <ul class="nav">
+                            <li><a class="headitem item1" href="#">Dashboard</a>
+                                <ul class="opened"><!-- ul items without this class get hiddden by jquery-->
+                                <li><a href="#">Menu Manager</a></li>
+                                <li><a href="#">Script Pages</a></li>
+                                <li><a href="#">Plugin Manager</a></li>
+                                <li><a href="#">User Manager</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="headitem item2" href="#">Settings</a>
+                                <ul>
+                                <li><a href="#">Post settings</a></li>
+                                <li><a href="#">User settings</a></li>
+                                <li><a href="#">Permalink Structure</a></li>
+                                </ul>                            
+                            </li>
+                            <li><a class="headitem item4" href="/admins/log">Activity Log</a>
+                                <ul>
+                                <li class="current"><a href="#">Recent Admin Activity</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="headitem item5" href="#">Search Site</a>
+                                <ul>
+                                <li><a href="#">Basic Search</a></li>
+                                <li><a href="#">Advanced Search</a></li>
+                                <li><a href="#">Search Option</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="headitem item6" href="#">Deleted Items</a>
+                                <ul>
+                                <li><a href="#">Content</a></li>
+                                <li><a href="#">Images</a></li>
+                                <li><a href="#">Audio</a></li>
+                                <li><a href="#">Video</a></li>
+                                <li><a href="#">PDF</a></li>
+                                <li><a href="#">Scripts</a></li>
+                                <li><a href="#">Other</a></li>
+                                </ul>
+                            </li>
+                        </ul><!--end subnav-->
+                        
+                      <div class="flexy_datepicker"></div>
+                       
+                       <ul>
+                       <li><a class="headitem item7" href="#">Task Manager</a>
+                                <ul>
+                                <li><a href="#">Write Blogpost</a></li>
+                                <li><a href="#">Script Pages</a></li>
+                                <li><a href="#">Meeting at 8.00</a></li>
+                                </ul>
+                            </li>
+                       </ul>     
+                        
+                    </div><!--end sidebar-->
+                    
+                 </div><!--end bg_wrapper-->
+                 
+            <div id="footer">
+            
+            </div><!--end footer-->
+            
+    </div><!-- end top -->
+    
+</body>
